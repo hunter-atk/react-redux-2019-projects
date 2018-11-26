@@ -7,10 +7,16 @@ class SearchBar extends Component {
     this.setState({ term: event.target.value });
   };
 
+  onFormSubmit = event => {
+    event.preventDefault();
+
+    //TO DO: Call callback from parent component.
+  };
+
   render() {
     return (
       <div className="searchBar ui segment">
-        <form className="ui form">
+        <form onSubmit={this.onFormSubmit} className="ui form">
           <div className="field">
             <label>Video Search</label>
             <input
