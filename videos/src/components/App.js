@@ -16,7 +16,6 @@ class App extends Component {
     const videos = response.data.items;
 
     this.setState({ videos });
-    console.log(this.state.videos);
   };
 
   render() {
