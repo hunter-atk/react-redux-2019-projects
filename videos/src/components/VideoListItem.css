@@ -1,0 +1,9 @@
+.videoListItem {
+    display: flex !important;
+    align-items: center;
+    cursor: pointer;
+}
+
+.videoListItem.item img {
+    max-width: 180px;
+}
