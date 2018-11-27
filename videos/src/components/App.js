@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
+import VideoList from './VideoList';
 
 class App extends Component {
   state = { videos: [] };
@@ -12,7 +13,9 @@ class App extends Component {
       }
     });
 
-    this.setState({ videos: response.data.items });
+    const videos = response.data.items;
+
+    this.setState({ videos });
     console.log(this.state.videos);
   };
 
@@ -20,6 +23,7 @@ class App extends Component {
     return (
       <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
+        <VideoList videos={this.state.videos} />
       </div>
     );
   }
