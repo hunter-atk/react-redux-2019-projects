@@ -21,6 +21,7 @@ class App extends Component {
   onVideoSelect = selectedVideo => {
     this.setState({ selectedVideo: selectedVideo });
     console.log(this.state.selectedVideo);
+    //Bug here? On first click, selectedVideo object doesn't log out
   };
 
   render() {
