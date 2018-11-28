@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
 import youtube from '../apis/youtube';
+
+import SearchBar from './SearchBar';
+import VideoDetail from './VideoDetail';
 import VideoList from './VideoList';
 
 class App extends Component {
@@ -18,16 +20,15 @@ class App extends Component {
     this.setState({ videos });
   };
 
-  onVideoSelect = selectedVideo => {
-    this.setState({ selectedVideo: selectedVideo });
-    console.log(this.state.selectedVideo);
-    //Bug here? On first click, selectedVideo object doesn't log out
+  onVideoSelect = video => {
+    this.setState({ selectedVideo: video });
   };
 
   render() {
     return (
       <div className="ui container">
         <SearchBar onTermSubmit={this.onTermSubmit} />
+        <VideoDetail video={this.state.selectedVideo} />
         <VideoList
           onVideoSelect={this.onVideoSelect}
           videos={this.state.videos}
