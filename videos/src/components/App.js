@@ -8,6 +8,10 @@ import VideoList from './VideoList';
 class App extends Component {
   state = { videos: [], selectedVideo: null };
 
+  componentDidMount() {
+    this.onTermSubmit('cats');
+  }
+
   onTermSubmit = async term => {
     const response = await youtube.get('/search', {
       params: {
@@ -17,7 +21,7 @@ class App extends Component {
 
     const videos = response.data.items;
 
-    this.setState({ videos });
+    this.setState({ videos, selectedVideo: videos[0] });
   };
 
   onVideoSelect = video => {
